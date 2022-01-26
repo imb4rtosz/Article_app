@@ -10,8 +10,8 @@
 </div>
 
 @if (session()->has('message'))
-    <div class="w-4/5 m-auto mt-10 pl-2">
-        <p class="w-2/6 mb-4 text-gray-50 bg-green-500 rounded-2xl py-4">
+    <div class="w-5/6 m-auto m-7 p-2">
+        <p class="w-1/4 mb-3 text-gray-200 bg-teal-700 p-5">
             {{ session()->get('message') }}
         </p>
     </div>
@@ -21,7 +21,7 @@
     <div class="pt-15 w-5/6 m-auto">
         <a 
             href="/article/create"
-            class="bg-gray-500 uppercase bg-transparent text-gray-100 text-xs font-bold py-3 px-5 rounded-3xl hover:bg-gray-900 hover:text-teal-700">
+            class="uppercase mt-15 bg-gray-500 text-gray-100 text-lg font-bold py-4 px-8 rounded-3xl hover:bg-gray-900 hover:text-teal-700">
             Create post
         </a>
     </div>
@@ -38,41 +38,42 @@
             </h2>
 
             <span class="text-gray-500">
-                By <span class="font-bold italic text-teal-800">{{ $post->user->name }}</span>, Created on {{ date('jS M Y', strtotime($post->updated_at)) }}
+                By <span class="font-bold italic text-teal-800">{{ $post->user->name }}</span>,<br>
+                 Created on {{ date('jS M Y', strtotime($post->updated_at)) }}
             </span>
 
             <p class="text-xl text-gray-700 pt-8 pb-10 leading-8 font-light">
-                {{ $post->description }}
+                {{ $post->content}}
             </p>
 
-            <a href="/article/{{ $post->slug }}" class="uppercase bg-gray-500 text-gray-100 hover:bg-gray-900 hover:text-teal-700 text-lg font-extrabold py-4 px-8 rounded-3xl">
+            <a href="/article/{{ $post->slug }}" class="uppercase mt-15 bg-gray-500 text-gray-100 text-lg font-semibold py-4 px-8 rounded-3xl hover:bg-gray-900 hover:text-teal-700">
                 Keep Reading
             </a>
 
             @if (isset(Auth::user()->id) && Auth::user()->id == $post->user_id)
-                <span class="float-right">
+             <div class="relative">
+               <span class="float-right ">
                     <a 
-                        href="/blog/{{ $post->slug }}/edit"
-                        class="text-gray-700 italic hover:text-gray-900 pb-1 border-b-2">
+                        href="/article/{{ $post->slug }}/edit"
+                        class="uppercase  bg-blue-400 text-gray-100 text-base font-normal py-3 px-3 rounded-2xl hover:bg-blue-800 hover:text-gray-200">
                         Edit
                     </a>
-                </span>
-
-                <span class="float-right">
+                
                      <form 
-                        action="/blog/{{ $post->slug }}"
+                        action="/article/{{ $post->slug }}"
                         method="POST">
                         @csrf
                         @method('delete')
 
                         <button
-                            class="text-red-500 pr-3"
+                            class="uppercase  mt-6 bg-red-400 text-gray-100 text-base font-normal py-3 px-3 rounded-2xl hover:bg-red-800 hover:text-gray-200"
                             type="submit">
                             Delete
                         </button>
 
                     </form>
                 </span>
+            </div>   
             @endif
         </div>
     </div>    
