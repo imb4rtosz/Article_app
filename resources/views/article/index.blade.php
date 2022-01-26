@@ -3,7 +3,7 @@
 @section('content')
 <div class="w-5/6 m-auto text-center">
     <div class="py-15 border-b border-gray-400">
-        <h1 class="text-6xl">
+        <h1 class="text-6xl text-teal-800">
            Article
         </h1>
     </div>
@@ -18,10 +18,10 @@
 @endif
 
 @if (Auth::check())
-    <div class="pt-15 w-4/5 m-auto">
+    <div class="pt-15 w-5/6 m-auto">
         <a 
-            href="/blog/create"
-            class="bg-blue-500 uppercase bg-transparent text-gray-100 text-xs font-extrabold py-3 px-5 rounded-3xl">
+            href="/article/create"
+            class="bg-gray-500 uppercase bg-transparent text-gray-100 text-xs font-bold py-3 px-5 rounded-3xl hover:bg-gray-900 hover:text-teal-700">
             Create post
         </a>
     </div>
@@ -45,7 +45,7 @@
                 {{ $post->description }}
             </p>
 
-            <a href="/blog/{{ $post->slug }}" class="uppercase bg-blue-500 text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl">
+            <a href="/article/{{ $post->slug }}" class="uppercase bg-gray-500 text-gray-100 hover:bg-gray-900 hover:text-teal-700 text-lg font-extrabold py-4 px-8 rounded-3xl">
                 Keep Reading
             </a>
 
