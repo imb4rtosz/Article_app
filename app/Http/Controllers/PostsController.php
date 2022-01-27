@@ -8,7 +8,7 @@ use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class PostsController extends Controller
 {
-    public function __construct()
+    public function __construct()   //only authenticated
     {
         $this->middleware('auth', ['except' => ['index', 'show']]);
     }
