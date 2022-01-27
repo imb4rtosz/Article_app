@@ -19,12 +19,12 @@
     <div id="app">
         <header class="bg-teal-900 py-6">
             <div class="container mx-auto flex justify-between items-center px-6">
-                <div>
-                    <a href="{{ url('/') }}" class="text-lg font-semibold text-gray-100 no-underline">
-                        {{ config('app.name', 'Laravel') }}
+                <div class="relative">
+                    <a href="{{ url('/') }}" class=" hover:text-gray-500 float-left text-3xl font-semibold text-gray-200 no-underline">
+                        Article world
                     </a>
                 </div>
-                <nav class="space-x-4 text-gray-100 text-sm sm:text-base">
+                <nav class="space-x-4 text-gray-100 text-lg ">
                     <a class="no-underline hover:text-gray-500" href="/">Home</a>
                     <a class="no-underline hover:text-gray-500" href="/article">Article</a>
 
